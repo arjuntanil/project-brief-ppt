@@ -1,0 +1,11 @@
+# Word slide-content document and its generator stay local
+*.docx
+~$*
+_source/
+
+# local tooling
+__pycache__/
+*.pyc
+node_modules/
+.vercel/
+.env*

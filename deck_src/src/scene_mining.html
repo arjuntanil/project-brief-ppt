@@ -1,0 +1,165 @@
+<div class="vz-stage">
+<svg class="vz" id="vzMine" data-mode="0" viewBox="0 0 852 533" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated concept: a live mine-to-smelter operation with fuel traceability">
+  <defs>
+    <linearGradient id="vzBrandM" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#db2777"/><stop offset=".5" stop-color="#a21caf"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+    <radialGradient id="vzPit" cx=".5" cy=".55" r=".6"><stop offset="0" style="stop-color:var(--road)"/><stop offset="1" style="stop-color:var(--land)"/></radialGradient>
+  </defs>
+  <g class="grid">
+    <line x1="0" y1="66" x2="852" y2="66"/><line x1="0" y1="133" x2="852" y2="133"/><line x1="0" y1="200" x2="852" y2="200"/><line x1="0" y1="266" x2="852" y2="266"/><line x1="0" y1="333" x2="852" y2="333"/><line x1="0" y1="400" x2="852" y2="400"/><line x1="0" y1="466" x2="852" y2="466"/>
+    <line x1="106" y1="0" x2="106" y2="533"/><line x1="213" y1="0" x2="213" y2="533"/><line x1="320" y1="0" x2="320" y2="533"/><line x1="426" y1="0" x2="426" y2="533"/><line x1="533" y1="0" x2="533" y2="533"/><line x1="640" y1="0" x2="640" y2="533"/><line x1="746" y1="0" x2="746" y2="533"/>
+  </g>
+
+  <!-- open pit: benches -->
+  <g style="stroke:var(--ln2)" stroke-width="1">
+    <ellipse cx="176" cy="300" rx="150" ry="104" fill="url(#vzPit)"/>
+    <ellipse cx="180" cy="306" rx="118" ry="80" style="fill:var(--road)" fill-opacity=".45"/>
+    <ellipse cx="184" cy="312" rx="86" ry="58" style="fill:var(--road)" fill-opacity=".6"/>
+    <ellipse cx="188" cy="318" rx="56" ry="37" style="fill:var(--road)" fill-opacity=".8"/>
+    <ellipse cx="190" cy="322" rx="28" ry="18" style="fill:var(--road-edge)"/>
+  </g>
+  <text class="lbl" x="52" y="306">OPEN PIT</text>
+  <!-- shovel -->
+  <g transform="translate(198 322)"><rect x="-9" y="-6" width="18" height="12" rx="3" class="node"/><path class="node-ic" d="M9 -2 l9 -8 l5 5 M18 -10 l2 8 h-6"/></g>
+  <text class="lbl-s" x="166" y="302">SHOVEL 02</text>
+
+  <!-- rain over the haul ramp (scenario lab) -->
+  <g class="layer m6"><g class="rain">
+    <line x1="250" y1="160" x2="244" y2="176"/><line x1="276" y1="140" x2="270" y2="156"/><line x1="300" y1="190" x2="294" y2="206"/><line x1="322" y1="150" x2="316" y2="166"/><line x1="262" y1="220" x2="256" y2="236"/>
+    <line x1="290" y1="250" x2="284" y2="266"/><line x1="318" y1="226" x2="312" y2="242"/><line x1="342" y1="196" x2="336" y2="212"/><line x1="240" y1="270" x2="234" y2="286"/><line x1="306" y1="292" x2="300" y2="308"/>
+    <line x1="268" y1="300" x2="262" y2="316"/><line x1="336" y1="268" x2="330" y2="284"/><line x1="356" y1="236" x2="350" y2="252"/><line x1="230" y1="180" x2="224" y2="196"/><line x1="284" y1="176" x2="278" y2="192"/>
+  </g></g>
+
+  <!-- haul roads -->
+  <path class="road-e" d="M198 322 C252 336 300 314 312 274 S292 200 330 170 S372 150 388 150" style="stroke-width:12"/>
+  <path class="road" d="M198 322 C252 336 300 314 312 274 S292 200 330 170 S372 150 388 150" style="stroke-width:10"/>
+  <path class="road-e" d="M198 322 C160 350 130 380 112 410 S92 440 86 448" style="stroke-width:12"/>
+  <path class="road" d="M198 322 C160 350 130 380 112 410 S92 440 86 448" style="stroke-width:10"/>
+  <path class="road-e" d="M312 274 C330 320 316 380 300 430" style="stroke-width:10"/>
+  <path class="road" d="M312 274 C330 320 316 380 300 430" style="stroke-width:8"/>
+  <g fill="none" stroke="none">
+    <path id="pHaul" d="M198 322 C252 336 300 314 312 274 S292 200 330 170 S372 150 388 150"/>
+    <path id="pWaste" d="M198 322 C160 350 130 380 112 410 S92 440 86 448"/>
+    <path id="pShop" d="M198 322 C252 336 300 314 312 274 C330 320 316 380 300 430"/>
+    <path id="pOut" d="M790 312 C800 340 800 370 796 398"/>
+  </g>
+
+  <!-- 1 · dispatch options at the shovel -->
+  <g class="layer m1">
+    <path d="M198 322 C252 336 300 314 312 274 S292 200 330 170 S372 150 388 150" fill="none" stroke="url(#vzBrandM)" stroke-width="3.2" stroke-dasharray="9 9" class="route-ai m"/>
+    <path d="M206 316 C260 270 360 200 470 150" fill="none" style="stroke:var(--ink3)" stroke-width="1.5" stroke-dasharray="4 5"/>
+    <path d="M198 322 C160 350 130 380 112 410 S92 440 86 448" fill="none" style="stroke:var(--ink3)" stroke-width="1.5" stroke-dasharray="4 5"/>
+    <g class="badge m" transform="translate(388 150)"><circle r="11"/><text>✓</text></g>
+  </g>
+
+  <!-- waste dump -->
+  <g transform="translate(78 458)"><path d="M-24 10 Q-12 -12 0 -6 Q10 -14 24 10 Z" class="node"/></g>
+  <text class="lbl-s" x="108" y="472">WASTE DUMP</text>
+
+  <!-- crusher, conveyor, stockpile, concentrator -->
+  <g transform="translate(400 150)"><rect x="-14" y="-14" width="28" height="28" rx="6" class="node"/><path class="node-ic" d="M-6 -5 l6 8 l6 -8 M-6 5 h12"/></g>
+  <text class="lbl" x="372" y="128">CRUSHER</text>
+  <path d="M414 146 L506 118 L578 118" fill="none" style="stroke:var(--ink3)" stroke-width="5" stroke-linecap="round" opacity=".35"/>
+  <path class="flow" d="M414 146 L506 118 L578 118" style="stroke:var(--vi)" stroke-width="3"/>
+  <text class="lbl-s" x="436" y="160">CONVEYOR</text>
+  <g transform="translate(506 112)"><path d="M-22 6 Q0 -18 22 6 Z" style="fill:var(--road-edge);stroke:var(--ln2)"/></g>
+  <text class="lbl-s" x="484" y="96">STOCKPILE</text>
+  <g transform="translate(600 118)"><rect x="-22" y="-16" width="44" height="32" rx="7" class="node"/><path class="node-ic" d="M-12 8 v-10 l6 -4 v4 l6 -4 v4 l6 -4 v14 z"/></g>
+  <text class="lbl" x="560" y="92">CONCENTRATOR</text>
+  <!-- slurry pipeline to the port -->
+  <path d="M622 118 C690 118 730 122 774 150" fill="none" style="stroke:var(--sk)" stroke-width="4" stroke-linecap="round" opacity=".25"/>
+  <path class="flow" d="M622 118 C690 118 730 122 774 150" style="stroke:var(--sk)" stroke-width="2.6"/>
+  <text class="lbl-s" x="668" y="108">PIPELINE</text>
+  <g transform="translate(790 160)"><rect x="-18" y="-14" width="36" height="28" rx="6" class="node"/><path class="node-ic" d="M-8 6 v-10 h16 v10 M-8 0 h16"/></g>
+  <text class="lbl" x="666" y="196">PORT · STORAGE</text>
+  <!-- smelter + outbound -->
+  <path d="M790 176 L790 270" fill="none" style="stroke:var(--ink3)" stroke-width="4" stroke-linecap="round" opacity=".3"/>
+  <path class="flow" d="M790 176 L790 270" style="stroke:var(--pk)" stroke-width="2.4"/>
+  <g transform="translate(790 292)"><rect x="-20" y="-20" width="40" height="40" rx="8" class="node"/><path class="node-ic" d="M-8 10 v-12 l8 -6 l8 6 v12 z M-2 10 v-6 h4 v6"/></g>
+  <text class="lbl" x="732" y="342">SMELTER</text>
+  <path class="road-e" d="M790 312 C800 340 800 370 796 398" style="stroke-width:9"/><path class="road" d="M790 312 C800 340 800 370 796 398" style="stroke-width:7"/>
+  <g transform="translate(796 410)"><rect x="-22" y="-12" width="44" height="24" rx="6" class="node"/><path class="node-ic" d="M-10 0 h20 M4 -6 l6 6 l-6 6"/></g>
+  <text class="lbl-s" x="768" y="442">OUTBOUND</text>
+
+  <!-- workshop -->
+  <g transform="translate(300 442)"><rect x="-18" y="-14" width="36" height="28" rx="6" class="node"/><path class="node-ic" d="M-7 6 l8 -8 M3 -6 a4 4 0 1 0 4 4"/></g>
+  <text class="lbl-s" x="276" y="476">WORKSHOP</text>
+
+  <!-- fuel network -->
+  <g id="vzFuel">
+    <g transform="translate(440 470)"><rect x="-20" y="-11" width="40" height="22" rx="5" class="node"/><path class="node-ic" d="M-10 3 h12 v-6 h5 l3 4 v2 z"/></g>
+    <text class="lbl-s" x="408" y="500">B50 DELIVERY</text>
+    <g transform="translate(530 452)"><ellipse rx="22" ry="13" class="node"/><path class="node-ic" d="M-10 0 h20"/></g>
+    <text class="lbl-s" x="500" y="432">BULK TANK</text>
+    <g transform="translate(612 470)"><ellipse rx="16" ry="10" class="node"/></g>
+    <text class="lbl-s" x="590" y="500">DAY TANK</text>
+    <g transform="translate(690 470)"><rect x="-18" y="-13" width="36" height="26" rx="6" class="node"/><path class="node-ic" d="M-3 -7 l-4 8 h6 l-4 8"/></g>
+    <text class="lbl-s" x="658" y="500">POWER PLANT</text>
+    <g transform="translate(430 392)"><rect x="-10" y="-13" width="20" height="26" rx="5" class="node"/><path class="node-ic" d="M-3 -5 h6 v9 h-6 z"/></g>
+    <text class="lbl-s" x="406" y="372">DISPENSER</text>
+    <g fill="none" stroke-linecap="round">
+      <path class="fl-d" d="M460 470 L508 456" style="stroke:var(--ink3)" stroke-width="1.6"/>
+      <path class="fl-d" d="M552 456 L596 468" style="stroke:var(--ink3)" stroke-width="1.6"/>
+      <path class="fl-u" d="M628 470 L672 470" style="stroke:var(--ink3)" stroke-width="1.6"/>
+      <path class="fl-e" d="M510 446 C480 420 460 404 440 396" style="stroke:var(--ink3)" stroke-width="1.6"/>
+    </g>
+  </g>
+
+  <!-- 3 · fuel trace: direct, estimated, unknown links + two alarms -->
+  <g class="layer m3">
+    <path d="M460 470 L508 456" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
+    <path d="M552 456 L596 468" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 6"/>
+    <path d="M628 470 L672 470" fill="none" stroke="#9ca3af" stroke-width="3" stroke-linecap="round" stroke-dasharray="1.5 6"/>
+    <path d="M510 446 C480 420 460 404 440 396" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
+    <path d="M420 392 C380 380 340 330 318 300" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
+    <text x="646" y="460" style="fill:#9ca3af;font-weight:700">?</text>
+    <g transform="translate(690 470)"><circle r="24" fill="none" stroke="#d97706" stroke-width="2"/><circle class="ring go" r="34" style="stroke:#d97706"/></g>
+    
+  </g>
+
+  <!-- 4 · asset health: inspection route to the workshop -->
+  <g class="layer m4">
+    <path d="M312 274 C330 320 316 380 300 430" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="8 7" class="flow" style="animation-duration:2.2s"/>
+  </g>
+
+  <!-- trucks (positioned by script) -->
+  <g id="vzMineTrucks"></g>
+</svg>
+
+<div class="vz-call" data-m="0" style="left:16px;top:16px;width:232px">
+  <h5>Live operating picture</h5>
+  <div class="col" style="gap:7px"><div class="row"><span class="ok">●</span>Haul cycle on plan</div><div class="row"><span class="ok">●</span>Crusher receiving</div><div class="row"><span class="ok">●</span>Conveyor running</div><div class="row"><span class="ok">●</span>Smelter feed covered</div></div>
+</div>
+<div class="vz-call" data-m="1" style="left:16px;top:16px;width:262px">
+  <h5>Next load · Shovel 02</h5>
+  <div class="col" style="gap:6px"><div class="row"><span class="ok">●</span><b>High-grade ore → Crusher</b></div><div>Protects the blend plan · truck healthy · operator fit for duty</div></div>
+</div>
+<div class="vz-call" data-m="2" style="left:16px;top:16px;width:232px">
+  <h5>Chain of custody</h5>
+  <div class="vz-steps" data-seq><span>Bench 5B</span><span>Shovel 02</span><span>Haul truck HT-14</span><span>Crusher</span><span>Stockpile</span><span>Assay recorded</span></div>
+</div>
+<div class="vz-call" data-m="3" style="left:16px;top:16px;width:296px">
+  <h5>Two alarms · one shared delivery</h5>
+  <div class="col" style="gap:8px"><div>Generator filter alarm and haul-truck fuel-pressure alarm trace back to the same B50 delivery.</div>
+  <div class="vz-legend"><span><i></i>Direct</span><span><i class="e"></i>Estimated</span><span><i class="u"></i>Unknown</span></div></div>
+</div>
+<div class="vz-call" data-m="4" style="left:16px;top:16px;width:290px">
+  <h5>Asset health and safety</h5>
+  <div class="col" style="gap:7px"><div class="row"><span class="warn">▲</span><b>HT-09 retarder temperature rising</b></div><div>Inspection slot booked · replacement truck assigned</div><div class="row"><span class="warn">▲</span>Fatigue alert → supervisor check</div></div>
+</div>
+<div class="vz-call" data-m="5" style="left:16px;top:16px;width:268px">
+  <h5>Cost per tonne moved · illustrative</h5>
+  <div class="vz-bars"><em>Diesel</em><div class="tr"><i class="g" style="--w:86%"></i></div><em>B50</em><div class="tr"><i class="s" style="--w:80%;transition-delay:.15s"></i></div><em>Electric</em><div class="tr"><i style="--w:64%;transition-delay:.3s"></i></div></div>
+  <div style="margin-top:9px;color:#6b6b88;font-size:11.5px">Compared on the same route, payload and duty cycle</div>
+</div>
+<div class="vz-call" data-m="6" style="left:16px;top:16px;width:268px">
+  <h5>Scenario · rain on the haul ramp</h5>
+  <svg viewBox="0 0 240 86" style="width:100%;height:auto;display:block">
+    <line x1="0" y1="20" x2="240" y2="20" stroke="#9ca3af" stroke-dasharray="4 4" stroke-width="1"/>
+    <path d="M0 22 C40 22 60 24 80 40 S130 70 160 66 S220 58 240 60" fill="none" stroke="#e11d48" stroke-width="2"/>
+    <path d="M0 22 C40 22 60 24 80 34 S120 30 150 24 S210 21 240 21" fill="none" stroke="#7c3aed" stroke-width="2.4"/>
+    <text x="4" y="14" style="font:500 9.5px var(--f-mono);fill:#6b6b88">Ore feed plan</text>
+  </svg>
+  <div class="vz-legend" style="margin-top:6px"><span><i style="border-color:#e11d48"></i>No response</span><span><i></i>Recommended</span></div>
+</div>
+<div class="vz-key"><span><i class="ld"></i>Ore</span><span><i></i>Empty</span><span><i style="background:#9ca3af;border-color:#9ca3af"></i>Waste</span></div>
+</div>
