@@ -1,3 +1,10 @@
-# Only the built deck is published; sources stay in the repo
+# Only the built deck is published.
+# Sources stay in the repo; local documents and secrets never upload.
 deck_src
+_source
 README.md
+*.docx
+~$*
+.env*
+__pycache__
+node_modules

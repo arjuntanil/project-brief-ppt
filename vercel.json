@@ -1,5 +1,4 @@
 {
-  "cleanUrls": true,
   "rewrites": [
     { "source": "/", "destination": "/Ba0Ba0_Project_Showcase.html" }
   ],

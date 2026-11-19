@@ -326,6 +326,7 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ba0 Ba0 — Project Experience Showcase</title>
+<link rel="icon" type="image/png" href="{{IMG:logo_mascot_light.png}}">
 <meta name="description" content="Ba0 Ba0 Pte. Ltd. — project experience showcase: aerospace, pharmaceutical, social services, semiconductor, agriculture, logistics and mining. Interactive presentation.">
 <style>
 {read(P("parts", "fonts.css"))}
