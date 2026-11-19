@@ -59,25 +59,6 @@ PROJECTS = [
               "AI prepares and checks the work; people confirm every key decision."],
          kpis=[("10", "Workflow stages, intake to archive"), ("3", "Teams on one platform"), ("~15", "Documents per order, prepared and tracked"), ("1-click", "Audit pack and executive report")],
          url=None, title_bar="Ba0 Ba0 Pharma Control Tower", c=("#db2777", "#7c3aed")),
-    dict(id="p-fund", key="fund", num="03", industry="Social services", tag="Grant and fund management",
-         name="Ba0 Ba0 Fund Management", h=("Every fund, managed from ", "application to audit."),
-         card="The complete grant lifecycle, from application to audit, supported by AI.",
-         lead="An AI-powered platform that manages the complete funding lifecycle for a multi-centre social-service organisation — from finding funding opportunities to applications, approvals, claims, reconciliation and closure.",
-         challenge="Organisations that manage more than 100 funding agreements across many funders often rely on spreadsheets and email. The result is late claims, unmatched receipts, missed deadlines and a heavy reporting workload.",
-         built="What we built",
-         features=[
-             ("End-to-end fund process", "One view of seven stages and six roles that shows exactly who needs to act next."),
-             ("AI application studio", "Scores each funding opportunity for fit and drafts a complete seven-section application."),
-             ("Smart fund register", "AI reads award letters and agreements, then records the terms, milestones and deadlines."),
-             ("Claims and reconciliation", "AI checks every invoice line for eligibility, and receipts are matched to claims automatically."),
-             ("Risk and compliance", "An AI risk scan flags overdue claims, and an AI compliance check scores each report before approval."),
-             ("AI Fund Copilot", "Answers questions in plain language, using the live records."),
-         ],
-         why=["One source of truth for every fund, claim and deadline.",
-              "Less manual work for programme and finance teams.",
-              "Clear approvals and a complete audit trail: an agreement closes only when every claim, report and reconciliation is complete."],
-         kpis=[("14", "Connected modules"), ("8", "User roles with approval chains"), ("10", "AI-assisted features"), ("7", "Process stages in one view")],
-         url="ba0ba0-fund-management.onrender.com", c=("#7c3aed", "#db2777")),
     dict(id="p-semi", key="silicon", num="04", industry="Semiconductor", tag="Manufacturing and finance intelligence",
          name="Semiconductor AI Control Tower", h=("Every panel. Every defect. ", "Every dollar."),
          card="Links factory quality to cost, customers and cash, with AI root-cause analysis.",
@@ -98,27 +79,25 @@ PROJECTS = [
               "AI advises and people decide: production systems are never changed automatically, and every action is recorded in an audit trail."],
          kpis=[("18", "Connected screens"), ("10", "Inspection applications"), ("13", "Weeks of cash forecasting"), ("1", "View from factory floor to cash")],
          url="silicon-box-portal.onrender.com", c=("#0ea5e9", "#7c3aed")),
-    dict(id="p-agri", key="agri", num="05", industry="Agriculture", tag="Site management and monitoring",
-         name="Agri Command Center", h=("One live picture of ", "the whole estate."),
-         card="Site monitoring, precision fertilising and drone missions for farm estates.",
-         lead="A precision-farming platform for site management and monitoring. It tracks soil and crop health across an estate, recommends exactly how much fertiliser each zone needs, plans drone spraying and weeding missions, and keeps a complete compliance record.",
-         challenge="Spreading the same amount of fertiliser and herbicide across an entire field wastes chemicals and money and can harm the surrounding environment. Farm teams must also bring together soil tests, sensor readings, aerial images and drone operations that are usually managed separately.",
+    dict(id="p-fund", key="fund", num="03", industry="Social services", tag="Grant and fund management",
+         name="Ba0 Ba0 Fund Management", h=("Every fund, managed from ", "application to audit."),
+         card="The complete grant lifecycle, from application to audit, supported by AI.",
+         lead="An AI-powered platform that manages the complete funding lifecycle for a multi-centre social-service organisation — from finding funding opportunities to applications, approvals, claims, reconciliation and closure.",
+         challenge="Organisations that manage more than 100 funding agreements across many funders often rely on spreadsheets and email. The result is late claims, unmatched receipts, missed deadlines and a heavy reporting workload.",
          built="What we built",
          features=[
-             ("Live estate map", "One view of every block, zone, sensor and drone on the estate."),
-             ("Sensor network and soil intelligence", "Sensor and laboratory results combine into an eight-measure fertility profile for each zone, with a confidence grade for every reading."),
-             ("Crop monitoring", "Aerial crop-health indices with automatic anomaly detection, and a suggested scouting flight when a zone behaves unusually."),
-             ("Prescription Studio", "Variable-rate fertiliser plans for each zone, with automatic no-spray buffers near waterways, homes and beehives, exported in the standard format used by farm machinery."),
-             ("Weed intelligence", "Weed detection, action thresholds and targeted spot-spray missions that show the amount of chemical saved."),
-             ("Mission Control", "Pre-flight safety checks and a weather gate for wind, spraying conditions and rain before any drone is cleared to fly."),
-             ("Alerts, reports and compliance", "Alerts that explain their reasoning, plus an application log, chemical inventory and harvest clearance records."),
+             ("End-to-end fund process", "One view of seven stages and six roles that shows exactly who needs to act next."),
+             ("AI application studio", "Scores each funding opportunity for fit and drafts a complete seven-section application."),
+             ("Smart fund register", "AI reads award letters and agreements, then records the terms, milestones and deadlines."),
+             ("Claims and reconciliation", "AI checks every invoice line for eligibility, and receipts are matched to claims automatically."),
+             ("Risk and compliance", "An AI risk scan flags overdue claims, and an AI compliance check scores each report before approval."),
+             ("AI Fund Copilot", "Answers questions in plain language, using the live records."),
          ],
-         why=["Less fertiliser and herbicide used, which lowers costs and environmental impact.",
-              "Safer drone operations, with automatic checks before every flight.",
-              "Full traceability for audits and regulatory compliance."],
-         kpis=[("16", "Managed zones"), ("30", "Sensor nodes"), ("6", "Drones in the fleet"), ("8", "Soil measures per zone")],
-         note="Demonstration estate with simulated sensor and drone data.",
-         url="agri-command-center.onrender.com", c=("#0d9488", "#0ea5e9")),
+         why=["One source of truth for every fund, claim and deadline.",
+              "Less manual work for programme and finance teams.",
+              "Clear approvals and a complete audit trail: an agreement closes only when every claim, report and reconciliation is complete."],
+         kpis=[("14", "Connected modules"), ("8", "User roles with approval chains"), ("10", "AI-assisted features"), ("7", "Process stages in one view")],
+         url="ba0ba0-fund-management.onrender.com", c=("#7c3aed", "#db2777")),
     dict(id="p-port", key="port", num="06", industry="Logistics and ports", tag="AI transport management",
          name="AI Port Transport Management", h=("Fewer empty trips. ", "Smarter port logistics."),
          card="AI trip planning and job matching that reduce empty truck trips.",
@@ -137,7 +116,9 @@ PROJECTS = [
               "Less fuel used means lower carbon emissions, supporting Singapore’s net-zero goals.",
               "Planning keeps running smoothly despite manpower shortages and an ageing workforce."],
          kpis=[("AI", "Route and trip planning"), ("Auto", "Scheduling without manual planning"), ("Pool", "Shared trucks across hauliers"), ("Live", "Traffic-aware arrival times")],
-         scene="scene_port.html", scene_title="Port haulage · live operations", c=("#db2777", "#0ea5e9")),
+         scene="scene_port.html", scene_title="Port haulage · live operations", c=("#db2777", "#0ea5e9"),
+         film=dict(src="media/singapore-port.mp4", poster="port_poster.webp", title="Singapore port haulage · film",
+                   tag="Industry footage · no sound", label="Industry footage · Singapore port haulage", dur="9:15")),
     dict(id="p-mine", key="mining", num="07", industry="Mining and energy", tag="Operations control tower",
          name="Mine-to-Smelter Operations Control Tower", h=("Every load. Every litre. ", "From pit to metal."),
          card="Live pit-to-port operations and B50 fuel traceability for an integrated copper and gold mine.",
@@ -158,7 +139,32 @@ PROJECTS = [
               "Proves whether each intervention worked, while existing site safety controls and approvers remain in charge."],
          kpis=[("6", "Operating areas in one control tower"), ("8", "Fuel intelligence modules"), ("7", "Steps from detection to closure"), ("3", "Levels of fuel traceability")],
          scene="scene_mining.html", scene_title="Mine to smelter · live operations", c=("#7c3aed", "#db2777")),
+    dict(id="p-agri", key="agri", num="05", industry="Agriculture", tag="Site management and monitoring",
+         name="Agri Command Center", h=("One live picture of ", "the whole estate."),
+         card="Site monitoring, precision fertilising and drone missions for farm estates.",
+         lead="A precision-farming platform for site management and monitoring. It tracks soil and crop health across an estate, recommends exactly how much fertiliser each zone needs, plans drone spraying and weeding missions, and keeps a complete compliance record.",
+         challenge="Spreading the same amount of fertiliser and herbicide across an entire field wastes chemicals and money and can harm the surrounding environment. Farm teams must also bring together soil tests, sensor readings, aerial images and drone operations that are usually managed separately.",
+         built="What we built",
+         features=[
+             ("Live estate map", "One view of every block, zone, sensor and drone on the estate."),
+             ("Sensor network and soil intelligence", "Sensor and laboratory results combine into an eight-measure fertility profile for each zone, with a confidence grade for every reading."),
+             ("Crop monitoring", "Aerial crop-health indices with automatic anomaly detection, and a suggested scouting flight when a zone behaves unusually."),
+             ("Prescription Studio", "Variable-rate fertiliser plans for each zone, with automatic no-spray buffers near waterways, homes and beehives, exported in the standard format used by farm machinery."),
+             ("Weed intelligence", "Weed detection, action thresholds and targeted spot-spray missions that show the amount of chemical saved."),
+             ("Mission Control", "Pre-flight safety checks and a weather gate for wind, spraying conditions and rain before any drone is cleared to fly."),
+             ("Alerts, reports and compliance", "Alerts that explain their reasoning, plus an application log, chemical inventory and harvest clearance records."),
+         ],
+         why=["Less fertiliser and herbicide used, which lowers costs and environmental impact.",
+              "Safer drone operations, with automatic checks before every flight.",
+              "Full traceability for audits and regulatory compliance."],
+         kpis=[("16", "Managed zones"), ("30", "Sensor nodes"), ("6", "Drones in the fleet"), ("8", "Soil measures per zone")],
+         note="Demonstration estate with simulated sensor and drone data.",
+         url="agri-command-center.onrender.com", c=("#0d9488", "#0ea5e9"))
 ]
+# Numbering and the left/right layout follow slide order, so reordering PROJECTS keeps 01–07 and alternation intact.
+for _i, _p in enumerate(PROJECTS):
+    _p["num"] = f"{_i + 1:02d}"
+    _p["layout"] = "mirror" if _i % 2 == 0 else "split"
 KPI_HUES = ["violet", "pink", "sky", "emerald"]
 ICON = {"rocket": "rocket", "pharma": "pill", "fund": "hand-heart", "silicon": "cpu", "agri": "target", "port": "route", "mining": "factory"}
 
@@ -199,8 +205,31 @@ def kpi_html(display, label, hue):
         val = f"<b>{esc(display)}</b>"
     return f'<div class="card" data-c="{hue}">{val}<span>{esc(label)}</span></div>'
 
+def film_panel(p):
+    f = p["film"]
+    t0, g0 = esc(p["scene_title"]), "Concept visualisation · illustrative"
+    swipe = ('<button class="vz-swipe" type="button" aria-label="Swipe to watch the port film">'
+             '<span class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/><circle cx="5" cy="12" r="2.6"/></svg></span>'
+             '<span><b>Swipe to watch</b><small>Port film · no sound</small></span></button>')
+    film = ('<div class="vz-page vz-film">'
+            '<video muted playsinline loop preload="none" disablepictureinpicture data-src="' + f["src"] + '" poster="{{IMG:' + f["poster"] + '}}" aria-label="' + esc(f["title"]) + '"></video>'
+            '<span class="vf-tag">' + esc(f["label"]) + '</span>'
+            '<button class="vf-back" type="button"><svg class="i"><use href="#i-arrow-left"/></svg>Live view</button>'
+            '<div class="vf-load"></div>'
+            '<div class="vf-ctrls"><button class="vf-play" type="button" aria-label="Play or pause"><svg class="i i-pl"><use href="#i-play"/></svg><svg class="i i-pa"><use href="#i-pause"/></svg></button>'
+            '<span class="vf-time">0:00</span><div class="vf-bar" role="slider" aria-label="Seek"><i></i></div><span class="vf-dur">' + f["dur"] + '</span>'
+            '<span class="vf-mute">No sound</span>'
+            '<button class="vf-full" type="button" aria-label="Full screen"><svg class="i"><use href="#i-expand"/></svg></button></div>'
+            '</div>')
+    return ('<div class="pj-viz rv rv-r" data-pages="2" data-page="0"><div class="vz-bar"><span class="vz-live"><i></i>Live</span>'
+            '<span class="vz-title" data-t0="' + t0 + '" data-t1="' + esc(f["title"]) + '">' + t0 + '</span>'
+            '<span class="vz-tag" data-t0="' + g0 + '" data-t1="' + esc(f["tag"]) + '">' + g0 + '</span>'
+            '<span class="vz-dots"><button class="on" type="button" aria-label="Live animation"></button><button type="button" aria-label="Port film"></button></span></div>'
+            '<div class="vz-pages"><div class="vz-track"><div class="vz-page">' + read(P("src", p["scene"])) + '</div>' + film + '</div>' + swipe + '</div></div>')
+
 def project_slide(p, shots):
-    layout, dark, frame, fx, amb = IDENTITY[p["key"]]
+    _, dark, frame, fx, amb = IDENTITY[p["key"]]
+    layout = p["layout"]
     feats = "".join(
         f'<button class="pj-f{" on" if i == 0 else ""}" role="tab" aria-selected="{"true" if i == 0 else "false"}"><b>{esc(t)}</b>'
         f'<span class="pj-d"><span><em></em>{esc(d)}</span></span><span class="pj-pb"><i></i></span></button>'
@@ -210,7 +239,9 @@ def project_slide(p, shots):
     fx_html = FX[fx]() if fx else ""
     demo = (f'<a class="pj-demo nozoom" href="https://{p["url"]}/" target="_blank" rel="noopener">Open live demo<svg class="i"><use href="#i-arrow-right"/></svg></a>'
             if p.get("url") else "")
-    if frame == "viz":
+    if frame == "viz" and p.get("film"):
+        visual = film_panel(p)
+    elif frame == "viz":
         visual = (f'<div class="pj-viz rv rv-r"><div class="vz-bar"><span class="vz-live"><i></i>Live</span><span class="vz-title">{esc(p["scene_title"])}</span>'
                   f'<span class="vz-tag">Concept visualisation · illustrative</span></div>{read(P("src", p["scene"]))}</div>')
     else:

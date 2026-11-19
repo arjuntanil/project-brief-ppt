@@ -58,7 +58,7 @@
       const steps = $$('.vz-steps span', box); steps.forEach(s => s.classList.remove('done'));
       steps.forEach((s, i) => deck.t(slideId, () => { s.classList.add('done'); if (i === steps.length - 1) sfx('done'); }, reduce ? 0 : 450 + i * 620));
     }
-    return {
+    const api = {
       start() { if (raf) return; last = 0; draw(); if (!reduce) raf = requestAnimationFrame(frame); },
       stop() { cancelAnimationFrame(raf); raf = 0; },
       mode(m) {
@@ -67,6 +67,8 @@
         $$('.m' + m + ' .ring', svg).forEach(r => { r.classList.remove('go'); r.getBoundingClientRect(); r.classList.add('go'); });
       }
     };
+    svg.__scene = api;
+    return api;
   }
 
   const scenes = {

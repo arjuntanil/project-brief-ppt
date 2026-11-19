@@ -197,3 +197,120 @@ html[data-theme] .slide.pj-dark .kicker{color:#f9a8d4}
 #stage.on-dark .here,#stage.on-dark .counter,#stage.on-dark .bl-sub{color:#9c93c4}
 #stage.on-dark .here b,#stage.on-dark .counter b{color:#f4f1ff}
 .slide.pj-dark .pj-cap{background:rgba(12,9,30,.8);border-color:rgba(196,181,253,.22);color:#f4f1ff}
+
+/* ---------- mining process detail: drill, shovel, crusher, conveyor, mill, flotation, smelter ---------- */
+.vz .mx-arm{transform-box:fill-box;transform-origin:0% 75%;animation:mxArm 3.4s ease-in-out infinite}
+@keyframes mxArm{0%,100%{transform:rotate(10deg)}45%,55%{transform:rotate(-24deg)}}
+.vz .mx-jaw{transform-box:fill-box;transform-origin:100% 0%;animation:mxJaw .5s ease-in-out infinite alternate}
+@keyframes mxJaw{from{transform:rotate(0)}to{transform:rotate(-9deg)}}
+.vz .mx-rocks path{fill:#db2777;opacity:0;animation:mxDrop 2.4s cubic-bezier(.55,0,.85,.35) infinite}
+.vz .mx-rocks .r2{animation-delay:.8s}.vz .mx-rocks .r3{animation-delay:1.6s}
+@keyframes mxDrop{0%{opacity:0;transform:translateY(-4px)}12%{opacity:.95}72%{opacity:.95;transform:translateY(24px)}100%{opacity:0;transform:translateY(30px)}}
+.vz .mx-fines circle{fill:#db2777;opacity:0;animation:mxFines 1.1s linear infinite}
+.vz .mx-fines .f2{animation-delay:.36s}.vz .mx-fines .f3{animation-delay:.72s}
+@keyframes mxFines{0%{opacity:0;transform:translate(0,0)}25%{opacity:.9}100%{opacity:0;transform:translate(16px,-2px)}}
+.vz .mx-roll circle{fill:var(--node);stroke:var(--ln2);stroke-width:1}
+.vz .mx-lumps .lump{fill:#db2777;stroke:rgba(255,255,255,.7);stroke-width:.6}
+.vz .mx-mill{transform-box:fill-box;transform-origin:center;animation:mxSpin 3.2s linear infinite}
+@keyframes mxSpin{to{transform:rotate(360deg)}}
+.vz .mx-bub circle{fill:var(--sk);opacity:0;animation:mxBub 2.2s ease-in infinite}
+.vz .mx-bub .b2{animation-delay:.73s}.vz .mx-bub .b3{animation-delay:1.46s}
+@keyframes mxBub{0%{opacity:0;transform:translateY(0)}20%{opacity:.95}100%{opacity:0;transform:translateY(-15px)}}
+.vz .mx-melt{animation:mxGlow 1.8s ease-in-out infinite}
+@keyframes mxGlow{0%,100%{opacity:.72}50%{opacity:1}}
+.vz .mx-sparks circle{fill:#fbbf24;opacity:0;animation:mxSpark 1.5s ease-out infinite}
+.vz .mx-sparks .s2{animation-delay:.5s}.vz .mx-sparks .s3{animation-delay:1s}
+@keyframes mxSpark{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(3px,-16px)}}
+.vz .mx-cath rect{fill:#b45309;opacity:.85}
+.vz .mx-bit{animation:mxDrill 1.3s ease-in-out infinite alternate}
+@keyframes mxDrill{from{transform:translateY(0)}to{transform:translateY(13px)}}
+.vz .mx-dust{fill:var(--ink3);opacity:0;transform-box:fill-box;transform-origin:center;animation:mxDust 1.3s ease-out infinite}
+.vz .mx-dust.d2{animation-delay:.65s}
+@keyframes mxDust{0%{opacity:.55;transform:scale(.4)}100%{opacity:0;transform:scale(2.4)}}
+
+/* ---------- port: swipe between the live animation and the film ---------- */
+.vz-dots{display:flex;align-items:center;gap:6px;margin-left:12px}
+.vz-dots button{all:unset;width:8px;height:8px;border-radius:4px;background:var(--hair2);cursor:pointer;transition:width .35s var(--ease),background .35s var(--ease)}
+.vz-dots button.on{width:22px;background:var(--grad-brand)}
+.vz-dots button:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+.vz-pages{position:relative;height:533px;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.vz-pages.dragging{cursor:grabbing}
+.vz-track{display:flex;width:200%;height:100%;transition:transform .75s var(--ease);will-change:transform}
+.vz-page{position:relative;width:50%;height:100%;flex:none;overflow:hidden}
+.vz-page>.vz-stage{height:100%}
+.vz-swipe{all:unset;box-sizing:border-box;position:absolute;right:16px;bottom:14px;z-index:6;display:flex;align-items:center;gap:11px;padding:8px 16px 8px 8px;border-radius:999px;
+  background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.96);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);
+  box-shadow:0 1px 2px rgba(10,10,35,.06),0 16px 34px -16px rgba(76,29,149,.45);cursor:pointer;color:#0a0a23;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+html[data-theme="dark"] .vz-swipe{background:rgba(18,14,33,.86);border-color:rgba(182,174,222,.22);color:#f4f1ff}
+.vz-swipe:hover{transform:translateX(-3px)}
+.vz-swipe:active{transform:scale(.97)}
+.vz-swipe:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.vz-swipe .sw-ic{width:40px;height:40px;border-radius:50%;background:var(--grad-brand);display:grid;place-items:center;color:#fff;box-shadow:var(--shadow-action)}
+.vz-swipe .sw-ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.vz-swipe .sw-ic circle{fill:#fff;stroke:none;animation:swFinger 2.6s var(--ease) infinite}
+@keyframes swFinger{0%,12%{transform:translateX(0);opacity:0}22%{opacity:1}62%{transform:translateX(12px);opacity:1}78%,100%{transform:translateX(12px);opacity:0}}
+.vz-swipe b{display:block;font:700 13.5px/1.1 var(--f-body);color:inherit}
+.vz-swipe small{display:block;margin-top:3px;font:500 10.5px/1.1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#6b6b88}
+.pj-viz[data-page="1"] .vz-swipe{opacity:0;pointer-events:none;transform:translateX(24px)}
+
+.vz-film{background:#05050b}
+.vz-film video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#05050b;display:block}
+.vf-tag{position:absolute;left:14px;top:14px;z-index:3;padding:8px 12px;border-radius:9px;background:rgba(10,8,24,.6);border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.vf-back{all:unset;box-sizing:border-box;position:absolute;right:14px;top:14px;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:9px;cursor:pointer;
+  background:rgba(10,8,24,.6);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font:650 12.5px/1 var(--f-body);color:#fff;transition:background .2s}
+.vf-back:hover{background:rgba(124,58,237,.55)}
+.vf-back svg{width:14px;height:14px}
+.vf-ctrls{position:absolute;left:14px;right:14px;bottom:14px;z-index:3;display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:12px;background:rgba(10,8,24,.62);
+  border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;transition:opacity .35s var(--ease)}
+.vf-ctrls button{all:unset;box-sizing:border-box;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;cursor:pointer;background:rgba(255,255,255,.12);color:#fff;transition:background .2s}
+.vf-ctrls button:hover{background:rgba(255,255,255,.24)}
+.vf-ctrls button:focus-visible{outline:2px solid #a78bfa;outline-offset:2px}
+.vf-ctrls svg{width:16px;height:16px}
+.vf-play .i-pa{display:none}.vf-play.playing .i-pl{display:none}.vf-play.playing .i-pa{display:block}
+.vf-ctrls .vf-time,.vf-ctrls .vf-dur{font:500 12px/1 var(--f-mono);color:rgba(255,255,255,.82);font-variant-numeric:tabular-nums;min-width:36px}
+.vf-bar{position:relative;flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.2);cursor:pointer;overflow:hidden}
+.vf-bar i{position:absolute;inset:0;background:var(--grad-brand);transform-origin:left center;transform:scaleX(0)}
+.vf-mute{font:500 10.5px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.vf-load{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:3px solid rgba(255,255,255,.2);border-top-color:#f472b6;
+  opacity:0;transition:opacity .3s;animation:vfSpin 1s linear infinite;z-index:2;pointer-events:none}
+.vz-film.loading .vf-load{opacity:1}
+@keyframes vfSpin{to{transform:rotate(360deg)}}
+.vz-film:fullscreen{background:#000}
+.vz-film:fullscreen video{background:#000}
+.vz-film:fullscreen .vf-ctrls{left:50%;right:auto;width:min(980px,92vw);transform:translateX(-50%);bottom:32px;padding:12px 16px}
+.vz-film:fullscreen .vf-back{display:none}
+.vz-film:fullscreen .vf-tag{left:32px;top:28px}
+.vz-film.idle .vf-ctrls,.vz-film.idle .vf-tag{opacity:0}
+.vz-film.idle{cursor:none}
+
+@media (prefers-reduced-motion:reduce){
+  .vz .mx-arm,.vz .mx-jaw,.vz .mx-rocks path,.vz .mx-fines circle,.vz .mx-mill,.vz .mx-bub circle,.vz .mx-melt,.vz .mx-sparks circle,.vz .mx-bit,.vz .mx-dust,.vz-swipe .sw-ic circle{animation:none!important}
+  .vz .mx-rocks path,.vz .mx-fines circle,.vz .mx-bub circle{opacity:.8}
+  .vz-track{transition:none}
+}
+
+/* magnified crusher: ore blocks enter, break down between the jaws, leave as crushed ore */
+.vz .mx-inset>rect{filter:drop-shadow(0 10px 18px rgba(76,29,149,.16))}
+.vz .mx-jaw2{transform-box:fill-box;transform-origin:100% 0%;animation:mxJaw2 .9s ease-in-out infinite alternate}
+@keyframes mxJaw2{from{transform:rotate(0)}to{transform:rotate(5deg)}}
+.vz .mx-ecc{transform-box:fill-box;transform-origin:center;animation:mxSpin 1.8s linear infinite}
+.vz .mx-link{animation:mxLink .9s ease-in-out infinite alternate}
+@keyframes mxLink{from{transform:translate(0,0)}to{transform:translate(-3px,1px)}}
+.vz .mx-feed .k{fill:#db2777;stroke:rgba(255,255,255,.8);stroke-width:.6;opacity:0;transform-box:fill-box;transform-origin:center;animation:mxCrush 3.6s cubic-bezier(.45,.05,.6,1) infinite}
+.vz .mx-feed .k2{animation-delay:.9s}.vz .mx-feed .k3{animation-delay:1.8s}.vz .mx-feed .k4{animation-delay:2.7s}
+@keyframes mxCrush{
+  0%{opacity:0;transform:translate(0,-6px) scale(1.25) rotate(0)}
+  10%{opacity:1}
+  40%{transform:translate(-2px,34px) scale(.95) rotate(25deg)}
+  55%{transform:translate(2px,52px) scale(.7) rotate(-15deg)}
+  72%{transform:translate(-1px,72px) scale(.48) rotate(30deg)}
+  88%{opacity:1;transform:translate(1px,88px) scale(.32) rotate(10deg)}
+  100%{opacity:0;transform:translate(1px,94px) scale(.25)}}
+.vz .mx-prod .pd{fill:#db2777;opacity:0;animation:mxProd 2.6s linear infinite}
+.vz .mx-prod .pd2{animation-delay:.52s}.vz .mx-prod .pd3{animation-delay:1.04s}.vz .mx-prod .pd4{animation-delay:1.56s}.vz .mx-prod .pd5{animation-delay:2.08s}
+@keyframes mxProd{0%{opacity:0;transform:translate(0,-6px)}12%{opacity:.95;transform:translate(4px,0)}100%{opacity:0;transform:translate(62px,0)}}
+.pj-viz[data-page="1"] .vz-live{display:none}
+@media (prefers-reduced-motion:reduce){.vz .mx-jaw2,.vz .mx-ecc,.vz .mx-link,.vz .mx-feed .k,.vz .mx-prod .pd{animation:none!important}.vz .mx-feed .k,.vz .mx-prod .pd{opacity:.85}}
+/* stacked screens fan toward the centre gutter when the frame sits on the right */
+.slide.pj:not(.mirror) .pj-stack .g2{transform:translate(-30px,-12px) rotate(2deg)}

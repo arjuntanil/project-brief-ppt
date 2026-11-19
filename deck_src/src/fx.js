@@ -110,4 +110,95 @@
   /* ---- dark project slides: switch the deck chrome to light text while they are on screen ---- */
   const stage = document.getElementById('stage');
   $$('.slide.pj-dark').forEach(sl => deck.on(sl.id, { enter() { stage.classList.add('on-dark'); }, leave() { stage.classList.remove('on-dark'); } }));
+
+  /* ---- port: swipe from the live animation to the film (muted, full screen on request) ---- */
+  $$('.pj-viz[data-pages]').forEach(wrap => {
+    const sl = slideOf(wrap), pages = $('.vz-pages', wrap), track = $('.vz-track', wrap), swipe = $('.vz-swipe', wrap);
+    const dots = $$('.vz-dots button', wrap), title = $('.vz-title', wrap), tag = $('.vz-tag', wrap);
+    const film = $('.vz-film', wrap), v = $('video', film), play = $('.vf-play', film), full = $('.vf-full', film);
+    const bar = $('.vf-bar', film), fill = $('.vf-bar i', film), tcur = $('.vf-time', film), tdur = $('.vf-dur', film), back = $('.vf-back', film);
+    const svg = $('svg.vz', wrap);
+    const scene = () => svg && svg.__scene;
+    const fmtT = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+    let page = 0, lastDrag = 0, idleT = 0;
+    v.muted = true; v.defaultMuted = true; v.volume = 0;
+    const setPage = p => {
+      page = p; wrap.dataset.page = p;
+      track.style.transform = 'translateX(' + (-50 * p) + '%)';
+      dots.forEach((d, i) => { d.classList.toggle('on', i === p); d.setAttribute('aria-current', i === p ? 'true' : 'false'); });
+      title.textContent = title.dataset['t' + p]; tag.textContent = tag.dataset['t' + p];
+      if (p === 1) {
+        if (!v.getAttribute('src')) { film.classList.add('loading'); v.src = v.dataset.src; }
+        v.muted = true; const pr = v.play(); if (pr) pr.catch(() => {});
+        scene() && scene().stop();
+      } else {
+        v.pause();
+        if (document.fullscreenElement === film) document.exitFullscreen().catch(() => {});
+        if (deck.slides[deck.cur] === sl) scene() && scene().start();
+      }
+    };
+    swipe.addEventListener('click', e => { e.stopPropagation(); setPage(1); window.sfx && sfx.play('tick'); });
+    back.addEventListener('click', e => { e.stopPropagation(); setPage(0); });
+    dots.forEach((d, i) => d.addEventListener('click', e => { e.stopPropagation(); setPage(i); }));
+
+    // drag / swipe with mouse, pen or touch; either direction flips the page
+    let drag = null;
+    pages.addEventListener('pointerdown', e => {
+      if (e.button !== 0 || e.target.closest('button, .vf-bar, a')) return;
+      drag = { x: e.clientX, dx: 0, id: e.pointerId, moved: false };
+    });
+    pages.addEventListener('pointermove', e => {
+      if (!drag) return;
+      const k = wrap.getBoundingClientRect().width / wrap.offsetWidth, W = pages.offsetWidth;
+      drag.dx = (e.clientX - drag.x) / k;
+      if (!drag.moved && Math.abs(drag.dx) > 8) { drag.moved = true; pages.setPointerCapture(drag.id); pages.classList.add('dragging'); track.style.transition = 'none'; }
+      if (!drag.moved) return;
+      let off = -page * W + drag.dx;
+      if (off > 0) off *= .3; if (off < -W) off = -W + (off + W) * .3;
+      track.style.transform = 'translateX(' + off.toFixed(1) + 'px)';
+    });
+    const end = () => {
+      if (!drag) return; const d = drag; drag = null;
+      pages.classList.remove('dragging'); track.style.transition = '';
+      if (d.moved) { lastDrag = Date.now(); setPage(Math.abs(d.dx) > 70 ? 1 - page : page); }
+    };
+    pages.addEventListener('pointerup', end); pages.addEventListener('pointercancel', end);
+    ['touchstart', 'touchmove', 'touchend'].forEach(t => pages.addEventListener(t, e => e.stopPropagation(), { passive: true }));
+
+    // film controls
+    const sync = () => play.classList.toggle('playing', !v.paused);
+    const toggle = () => { if (v.paused) { const pr = v.play(); if (pr) pr.catch(() => {}); } else v.pause(); };
+    v.addEventListener('play', sync); v.addEventListener('pause', sync);
+    v.addEventListener('loadedmetadata', () => { tdur.textContent = fmtT(v.duration); });
+    v.addEventListener('timeupdate', () => { tcur.textContent = fmtT(v.currentTime); fill.style.transform = 'scaleX(' + (v.duration ? v.currentTime / v.duration : 0) + ')'; });
+    ['waiting', 'loadstart'].forEach(t => v.addEventListener(t, () => film.classList.add('loading')));
+    ['playing', 'canplay', 'pause', 'error'].forEach(t => v.addEventListener(t, () => film.classList.remove('loading')));
+    v.addEventListener('volumechange', () => { if (!v.muted) v.muted = true; });
+    v.addEventListener('click', e => { e.stopPropagation(); if (Date.now() - lastDrag > 300) toggle(); });
+    play.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+    bar.addEventListener('pointerdown', e => {
+      e.stopPropagation(); const r = bar.getBoundingClientRect();
+      if (v.duration) v.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * v.duration;
+    });
+    full.addEventListener('click', e => {
+      e.stopPropagation();
+      if (document.fullscreenElement === film) document.exitFullscreen().catch(() => {});
+      else if (film.requestFullscreen) film.requestFullscreen().catch(() => {});
+    });
+    const wake = () => { film.classList.remove('idle'); clearTimeout(idleT); if (document.fullscreenElement === film) idleT = setTimeout(() => film.classList.add('idle'), 2600); };
+    film.addEventListener('pointermove', wake);
+    document.addEventListener('fullscreenchange', () => { film.classList.toggle('is-full', document.fullscreenElement === film); wake(); });
+    // while the film is full screen the keys control the film, never the slides
+    addEventListener('keydown', e => {
+      if (document.fullscreenElement !== film) return;
+      e.stopPropagation();
+      if (e.key === ' ' || e.key === 'k' || e.key === 'K') { e.preventDefault(); toggle(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); v.currentTime = Math.min(v.duration || 0, v.currentTime + 5); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); v.currentTime = Math.max(0, v.currentTime - 5); }
+      else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); document.exitFullscreen().catch(() => {}); }
+      wake();
+    }, true);
+
+    deck.on(sl.id, { enter() { setPage(0); }, leave() { v.pause(); if (document.fullscreenElement === film) document.exitFullscreen().catch(() => {}); } });
+  });
 })();
