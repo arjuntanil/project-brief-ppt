@@ -213,7 +213,6 @@ def film_panel(p):
              '<span><b>Swipe to watch</b><small>Port film · no sound</small></span></button>')
     film = ('<div class="vz-page vz-film">'
             '<video muted playsinline loop preload="none" disablepictureinpicture data-src="' + f["src"] + '" poster="{{IMG:' + f["poster"] + '}}" aria-label="' + esc(f["title"]) + '"></video>'
-            '<span class="vf-tag">' + esc(f["label"]) + '</span>'
             '<button class="vf-back" type="button"><svg class="i"><use href="#i-arrow-left"/></svg>Live view</button>'
             '<div class="vf-load"></div>'
             '<div class="vf-ctrls"><button class="vf-play" type="button" aria-label="Play or pause"><svg class="i i-pl"><use href="#i-play"/></svg><svg class="i i-pa"><use href="#i-pause"/></svg></button>'
@@ -222,7 +221,7 @@ def film_panel(p):
             '<button class="vf-full" type="button" aria-label="Full screen"><svg class="i"><use href="#i-expand"/></svg></button></div>'
             '</div>')
     return ('<div class="pj-viz rv rv-r" data-pages="2" data-page="0"><div class="vz-bar"><span class="vz-live"><i></i>Live</span>'
-            '<span class="vz-title" data-t0="' + t0 + '" data-t1="' + esc(f["title"]) + '">' + t0 + '</span>'
+            '<span class="vz-title" data-t0="' + t0 + '" data-t1="">' + t0 + '</span>'
             '<span class="vz-tag" data-t0="' + g0 + '" data-t1="' + esc(f["tag"]) + '">' + g0 + '</span>'
             '<span class="vz-dots"><button class="on" type="button" aria-label="Live animation"></button><button type="button" aria-label="Port film"></button></span></div>'
             '<div class="vz-pages"><div class="vz-track"><div class="vz-page">' + read(P("src", p["scene"])) + '</div>' + film + '</div>' + swipe + '</div></div>')
