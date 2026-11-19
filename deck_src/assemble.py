@@ -326,7 +326,7 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ba0 Ba0 — Project Experience Showcase</title>
-<link rel="icon" type="image/png" href="{{IMG:logo_mascot_light.png}}">
+<link rel="icon" type="image/png" href="{{{{IMG:logo_mascot_light.png}}}}">
 <meta name="description" content="Ba0 Ba0 Pte. Ltd. — project experience showcase: aerospace, pharmaceutical, social services, semiconductor, agriculture, logistics and mining. Interactive presentation.">
 <style>
 {read(P("parts", "fonts.css"))}
@@ -360,7 +360,7 @@ def main():
         s = shots.get(m.group(1)); return data_uri(s["thumb"]) if s and s.get("thumb") else PLACEHOLDER
     doc = re.sub(r"\{\{THUMB:([a-z]+)\}\}", thumb, doc)
     doc = re.sub(r"__B64_\d+__", lambda m: b64[m.group(0)], doc)
-    left = re.findall(r"\{\{[A-Z]+:[^}]*\}\}|__B64_\d+__", doc)
+    left = re.findall(r"\{+(?:IMG|SHOT|THUMB|PARTNERS|PORTFOLIO_CARDS)[:}][^}]*\}*|__B64_\d+__", doc)
     if left: sys.exit(f"Unresolved placeholders: {left[:5]}")
     open(OUT, "w", encoding="utf-8", newline="\n").write(doc)
     missing = [k for k, v in shots.items() if not v]
